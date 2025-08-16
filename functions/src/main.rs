@@ -15,6 +15,12 @@ fn main() {
 
     let status = if is_paused { "Game is paused" } else { "Game is running" };
     println!("{status}");
+
+    let condition = false;
+    let number = if condition { 5 } else { 6 };
+
+    println!("The value of number is: {number}");
+
 }
 
 
