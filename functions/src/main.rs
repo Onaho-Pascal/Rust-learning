@@ -2,13 +2,22 @@ const KNOCK_OUT: u32 = 200;
 
 fn main() {
 
-    let knock_out: u32 = 200;
-    println!("The maximum damage achievable is {knock_out}");
-    // knock_out = 300;
-    // println!("The maximum damage achievable is {knock_out}");
-    println!("The maximum damage achievable is {KNOCK_OUT}");
-    println!("At {KNOCK_OUT} damage, Player gets knocked out!");
+    let val = 30;
+    if val > KNOCK_OUT {
+        println!("Above maximum allowed!");
+    } else {
+        println!("Below maximum allowed!");
+    }
+    let mut is_paused = false;
+
+    // Some game event occurs
+    is_paused = !is_paused; // toggle
+
+    let status = if is_paused { "Game is paused" } else { "Game is running" };
+    println!("{status}");
 }
+
+
 
 
 
