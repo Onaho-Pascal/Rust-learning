@@ -21,6 +21,26 @@ fn main() {
 
     println!("The value of number is: {number}");
 
+
+    let pascal = true;
+    let name = if pascal {10} else {6};
+    println!("the name tag is {name}");
+
+    let mut is_logged_in = true;
+    let mut message = if is_logged_in {
+        "You have successfully logged in"
+    } else {
+        "Try again!"
+    };
+    println!("{message}");
+    is_logged_in = false;
+    message =  if is_logged_in {
+        "You have successfully logged in"
+    } else {
+        "Try again!"
+    };
+    println!("{message}");
+
 }
 
 
