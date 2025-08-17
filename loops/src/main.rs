@@ -45,5 +45,22 @@ fn main () {
     };
     println!("Search finished!");
 
+    let mut countdown = 3;
+
+    while countdown != 0 {
+        println!("{countdown}");
+        countdown -= 1;
+    }
+    println!("LET'S FUCKING GOOOOOO!!!!");
+
+    let a = [10, 20, 30, 50];
+    let mut index = 0;
+
+    while index < 5 {
+        println!("The number is {}", a[index]);
+
+        index += 1;
+    }
+
 
 }
