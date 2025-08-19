@@ -1,11 +1,10 @@
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 struct User {
     name: String,
     email: String,
 }
 
 fn main() {
-    // A new user joins (heap allocation for name & email)
     let user1 = User {
         name: String::from("Alice"),
         email: String::from("alice@example.com"),
@@ -14,7 +13,6 @@ fn main() {
     // Transfer ownership of user1 into system
     register_user(user1);
 
-    // println!("{:?}", user1); ❌ ERROR: user1 moved into register_user()
 
     // If we still need user data afterwards, we can clone
     let user2 = User {
