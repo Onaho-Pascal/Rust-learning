@@ -34,4 +34,19 @@ fn register_user(u: User) {
 
 fn check_email_length(u: &User) -> usize {
     u.email.len()
+
+    let book = String::from("The Rust Programming Language");
+
+    // We borrow 'book' with a reference (&book)
+    let length = calculate_length(&book);
+
+    println!("'{}' has {} characters.", book, length);
+
+// The function borrows the string instead of taking ownership
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
+
+
+
 }
