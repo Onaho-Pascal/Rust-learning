@@ -1,52 +1,24 @@
-#[derive(Debug, Clone)]
-struct User {
-    name: String,
-    email: String,
-}
-
 fn main() {
-    let user1 = User {
-        name: String::from("Alice"),
-        email: String::from("alice@example.com"),
-    };
+    let name = String::from("Pascal");
+    let new_name = name; //ownership has been transfered t "new_name".
 
-    // Transfer ownership of user1 into system
-    register_user(user1);
+    //If you want "new_name" to have the same value as "name", without it being pointed to but created newly,
+    // then let new_name = name.clone(); 
 
+    println!("{}", new_name);
 
-    // If we still need user data afterwards, we can clone
-    let user2 = User {
-        name: String::from("Bob"),
-        email: String::from("bob@example.com"),
-    };
-    let user3 = user2.clone(); // deep copy
-    register_user(user2);
-    println!("We still have {:?}", user3);
+    let s = String::from ("Rust");
 
-    // Borrowing: check user’s email length without taking ownership
-    let email_length = check_email_length(&user3);
-    println!("{}'s email length is {}", user3.name, email_length);
-}
+    take_ownership(s);
+    // println!("{}", s); will throw back an error cos Rust has been technically moved from s to "take_ownership" function
+    let a: i32 = 34;
+    let x: i32 = a;
 
-fn register_user(u: User) {
-    println!("Registered user: {:?}", u);
-} // u goes out of scope here → memory freed safely
+    println!("{} {}", a, x);
 
-fn check_email_length(u: &User) -> usize {
-    u.email.len()
-
-    let book = String::from("The Rust Programming Language");
-
-    // We borrow 'book' with a reference (&book)
-    let length = calculate_length(&book);
-
-    println!("'{}' has {} characters.", book, length);
-
-// The function borrows the string instead of taking ownership
-fn calculate_length(s: &String) -> usize {
-    s.len()
 }
 
 
-
+fn take_ownership(str_val: String) {
+    println!("{}", str_val);
 }
